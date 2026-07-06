@@ -23,21 +23,32 @@ function inlineSharedChunksPlugin() {
         const shared = bundle[sKey]
         if (!shared) { sharedKeys.splice(leafIdx, 1); continue }
 
-        const prefix = shared.code.replace(/import\s+[^;]+;?\n?/g, '')
+        const cleaned = shared.code.replace(/import\s+[^;]+;?\n?/g, '')
+        const exportMatch = cleaned.match(/export\s*\{([^}]+)\}/)
+        const exportNames = exportMatch
+          ? exportMatch[1].split(',').map(e => {
+              const parts = e.trim().split(/\s+as\s+/)
+              return { local: parts[0].trim(), exported: (parts[1] || parts[0]).trim() }
+            })
+          : []
+        const codeBody = cleaned.replace(/export\s*\{[^}]*\};?\n?/g, '').trim()
+        const ns = `__sh_${sKey.replace(/[^a-zA-Z0-9]/g, '_')}`
+        const exportLine = exportNames.map(e => `${ns}.${e.exported}=${e.local};`).join('')
+        const prefix = `var ${ns}={};\n(function(){\n${codeBody}\n${exportLine}\n})();\n`
 
         for (const eKey of entryKeys) {
           const entry = bundle[eKey]
           if (!entry || !entry.imports.includes(sKey)) continue
-          entry.code = entry.code.replace(/import\s+\{[^}]*\}\s+from\s+['"][^'"]*['"]\s*;?\n?/g, '')
-          entry.code = prefix + '\n' + entry.code
+          entry.code = entry.code.replace(/import\s+\{[^}]*\}\s*from\s*['"][^'"]*['"]\s*;?\n?/g, '')
+          entry.code = prefix + entry.code
           entry.imports = entry.imports.filter(i => i !== sKey)
         }
 
         for (const sKey2 of sharedKeys) {
           const other = bundle[sKey2]
           if (!other || !other.imports.includes(sKey)) continue
-          other.code = other.code.replace(/import\s+\{[^}]*\}\s+from\s+['"][^'"]*['"]\s*;?\n?/g, '')
-          other.code = prefix + '\n' + other.code
+          other.code = other.code.replace(/import\s+\{[^}]*\}\s*from\s*['"][^'"]*['"]\s*;?\n?/g, '')
+          other.code = prefix + other.code
           other.imports = other.imports.filter(i => i !== sKey)
         }
 

@@ -1,4 +1,6 @@
-(function(){var s=document.createElement('style');s.textContent=".folia-cadenza-root[data-v-f294dd11],.folia-classic-root[data-v-96ae650c]{background:transparent}";document.head.appendChild(s)})();/**
+(function(){var s=document.createElement('style');s.textContent=".folia-cadenza-root[data-v-f294dd11],.folia-classic-root[data-v-96ae650c]{background:transparent}";document.head.appendChild(s)})();var __sh__plugin_vue_export_helper_Ds65E8pU_js={};
+(function(){
+/**
 * @vue/shared v3.5.39
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
@@ -2287,37 +2289,10 @@ const vs = (e, t) => {
     n[s] = r;
   return n;
 };
-export {
-  kr as B,
-  xt as F,
-  vs as _,
-  it as a,
-  ps as b,
-  ms as c,
-  hs as d,
-  wn as e,
-  cs as f,
-  Jr as g,
-  re as h,
-  ls as i,
-  Zr as j,
-  vt as k,
-  J as l,
-  _s as m,
-  yt as n,
-  Lr as o,
-  gs as p,
-  us as q,
-  ds as r,
-  b as s,
-  jn as t,
-  as as u,
-  y as v,
-  fs as w,
-  os as x,
-  ys as z
-};
-
+__sh__plugin_vue_export_helper_Ds65E8pU_js.B=kr;__sh__plugin_vue_export_helper_Ds65E8pU_js.F=xt;__sh__plugin_vue_export_helper_Ds65E8pU_js._=vs;__sh__plugin_vue_export_helper_Ds65E8pU_js.a=it;__sh__plugin_vue_export_helper_Ds65E8pU_js.b=ps;__sh__plugin_vue_export_helper_Ds65E8pU_js.c=ms;__sh__plugin_vue_export_helper_Ds65E8pU_js.d=hs;__sh__plugin_vue_export_helper_Ds65E8pU_js.e=wn;__sh__plugin_vue_export_helper_Ds65E8pU_js.f=cs;__sh__plugin_vue_export_helper_Ds65E8pU_js.g=Jr;__sh__plugin_vue_export_helper_Ds65E8pU_js.h=re;__sh__plugin_vue_export_helper_Ds65E8pU_js.i=ls;__sh__plugin_vue_export_helper_Ds65E8pU_js.j=Zr;__sh__plugin_vue_export_helper_Ds65E8pU_js.k=vt;__sh__plugin_vue_export_helper_Ds65E8pU_js.l=J;__sh__plugin_vue_export_helper_Ds65E8pU_js.m=_s;__sh__plugin_vue_export_helper_Ds65E8pU_js.n=yt;__sh__plugin_vue_export_helper_Ds65E8pU_js.o=Lr;__sh__plugin_vue_export_helper_Ds65E8pU_js.p=gs;__sh__plugin_vue_export_helper_Ds65E8pU_js.q=us;__sh__plugin_vue_export_helper_Ds65E8pU_js.r=ds;__sh__plugin_vue_export_helper_Ds65E8pU_js.s=b;__sh__plugin_vue_export_helper_Ds65E8pU_js.t=jn;__sh__plugin_vue_export_helper_Ds65E8pU_js.u=as;__sh__plugin_vue_export_helper_Ds65E8pU_js.v=y;__sh__plugin_vue_export_helper_Ds65E8pU_js.w=fs;__sh__plugin_vue_export_helper_Ds65E8pU_js.x=os;__sh__plugin_vue_export_helper_Ds65E8pU_js.z=ys;
+})();
+var __sh_colorMix_CCs_cg1y_js={};
+(function(){
 function a(t, e) {
   if (t.startsWith("#")) {
     const r = parseInt(t.slice(1, 3), 16), s = parseInt(t.slice(3, 5), 16), n = parseInt(t.slice(5, 7), 16);
@@ -2325,10 +2300,8 @@ function a(t, e) {
   }
   return t.startsWith("rgb(") ? t.replace("rgb(", "rgba(").replace(")", `,${e})`) : t;
 }
-export {
-  a as c
-};
-
+__sh_colorMix_CCs_cg1y_js.c=a;
+})();
 const ne = { class: "folia-cadenza-root w-full h-full overflow-hidden pointer-events-none select-none" }, oe = { class: "absolute inset-0 w-full h-full" }, se = {
   __name: "CadenzaTheme",
   props: {
