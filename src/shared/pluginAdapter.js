@@ -59,7 +59,15 @@ export function createStyleContext(props, settings = {}) {
   }
 
   function getConfigValue(key, fallback) {
-    return getVal(key, fallback)
+    if (settings[key] !== undefined) return settings[key]
+    try {
+      const saved = localStorage.getItem('music-full-config')
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        if (parsed[key] !== undefined) return parsed[key]
+      }
+    } catch { /* ignore */ }
+    return fallback
   }
 
   return { nowTime, nowIndex, lrcArray, getCoverColor, getClimaxState, getConfigValue }
