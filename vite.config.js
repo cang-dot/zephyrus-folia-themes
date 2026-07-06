@@ -71,7 +71,7 @@ function inlineSharedChunksPlugin() {
         if (!chunk || chunk.type !== 'chunk' || !chunk.isEntry) continue
         // Detect exportHelper call: XXX = /* @__PURE__ */ YYY(componentName, [["__scopeId", ...]])
         const helperMatch = chunk.code.match(/=\s*\/\*\s*@__PURE__\s*\*\/\s*(\w+)\s*\(\w+,\s*\[\s*\[\s*"__scopeId"/)
-        if (helperMatch && !chunk.code.includes('function(m,k)')) {
+        if (helperMatch) {
           const helperVar = helperMatch[1] // The minified function name
           chunk.code = `var ${helperVar}=${exportHelperImpl};\n` + chunk.code
         }
