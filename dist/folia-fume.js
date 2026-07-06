@@ -1,5 +1,5 @@
 (function(){var s=document.createElement('style');s.textContent=".folia-fume-root[data-v-54b8528a],.folia-partita-root[data-v-bde952ec]{background:transparent}";document.head.appendChild(s)})();var __sh__plugin_vue_export_helper_Cmn1wCFW_js={};
-(function(){
+(function(){'use strict';
 /**
 * @vue/shared v3.5.39
 * (c) 2018-present Yuxi (Evan) You and Vue contributors

@@ -1,5 +1,5 @@
 (function(){var s=document.createElement('style');s.textContent=".folia-cadenza-root[data-v-f294dd11],.folia-classic-root[data-v-96ae650c]{background:transparent}";document.head.appendChild(s)})();var __sh__plugin_vue_export_helper_Cmn1wCFW_js={};
-(function(){
+(function(){'use strict';
 /**
 * @vue/shared v3.5.39
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
@@ -1747,7 +1747,7 @@ const As = (t, e) => {
 __sh__plugin_vue_export_helper_Cmn1wCFW_js.B=Yn;__sh__plugin_vue_export_helper_Cmn1wCFW_js.F=he;__sh__plugin_vue_export_helper_Cmn1wCFW_js._=As;__sh__plugin_vue_export_helper_Cmn1wCFW_js.a=Ts;__sh__plugin_vue_export_helper_Cmn1wCFW_js.b=xs;__sh__plugin_vue_export_helper_Cmn1wCFW_js.c=Is;__sh__plugin_vue_export_helper_Cmn1wCFW_js.d=Xe;__sh__plugin_vue_export_helper_Cmn1wCFW_js.e=ys;__sh__plugin_vue_export_helper_Cmn1wCFW_js.f=Kt;__sh__plugin_vue_export_helper_Cmn1wCFW_js.g=ls;__sh__plugin_vue_export_helper_Cmn1wCFW_js.h=Z;__sh__plugin_vue_export_helper_Cmn1wCFW_js.i=bs;__sh__plugin_vue_export_helper_Cmn1wCFW_js.j=ds;__sh__plugin_vue_export_helper_Cmn1wCFW_js.k=re;__sh__plugin_vue_export_helper_Cmn1wCFW_js.l=St;__sh__plugin_vue_export_helper_Cmn1wCFW_js.m=Cs;__sh__plugin_vue_export_helper_Cmn1wCFW_js.n=se;__sh__plugin_vue_export_helper_Cmn1wCFW_js.o=Xn;__sh__plugin_vue_export_helper_Cmn1wCFW_js.p=vs;__sh__plugin_vue_export_helper_Cmn1wCFW_js.q=S;__sh__plugin_vue_export_helper_Cmn1wCFW_js.r=ws;__sh__plugin_vue_export_helper_Cmn1wCFW_js.s=y;__sh__plugin_vue_export_helper_Cmn1wCFW_js.t=dn;__sh__plugin_vue_export_helper_Cmn1wCFW_js.u=ms;__sh__plugin_vue_export_helper_Cmn1wCFW_js.w=Ss;__sh__plugin_vue_export_helper_Cmn1wCFW_js.z=Rs;
 })();
 var __sh_colorMix_CCs_cg1y_js={};
-(function(){
+(function(){'use strict';
 var a=function a(t, e) {
   if (t.startsWith("#")) {
     const r = parseInt(t.slice(1, 3), 16), s = parseInt(t.slice(3, 5), 16), n = parseInt(t.slice(5, 7), 16);

@@ -39,7 +39,9 @@ function inlineSharedChunksPlugin() {
         // causing "Identifier 'oe' has already been declared" when main bundle also has const oe.
         const renamedBody = codeBody
           .replace(/\bfunction\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, 'var $1=function $1(')
-        const prefix = `var ${ns}={};\n(function(){\n${renamedBody}\n${exportLine}\n})();\n`
+          .replace(/\bprocess\.env\.NODE_ENV\b/g, '"production"')
+          .replace(/\bprocess\.(versions|platform|browser|release)\b/g, '({}).$1 || ""')
+        const prefix = `var ${ns}={};\n(function(){'use strict';\n${renamedBody}\n${exportLine}\n})();\n`
 
         for (const eKey of entryKeys) {
           const entry = bundle[eKey]
