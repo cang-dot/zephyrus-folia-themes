@@ -1,4 +1,5 @@
-(function(){var s=document.createElement('style');s.textContent=".folia-fume-root[data-v-54b8528a],.folia-partita-root[data-v-bde952ec]{background:transparent}";document.head.appendChild(s)})();var __sh__plugin_vue_export_helper_Cmn1wCFW_js={};
+(function(){var s=document.createElement('style');s.textContent=".folia-fume-root[data-v-54b8528a],.folia-partita-root[data-v-bde952ec]{background:transparent}";document.head.appendChild(s)})();var X=function(m,k){var e=m.__esModule||m[Symbol.toStringTag]==='Module'?function(){return m.default}:function(){return m};var d=e();for(var p in m){if(p!=='default'&&!Object.prototype.hasOwnProperty.call(d,p)){Object.defineProperty(d,p,{enumerable:true,get:(function(x){return m[x]}).bind(null,p)})}}if(k){for(var i=0;i<k.length;i++){d[k[i][0]]=k[i][1];}}return d;};
+var __sh__plugin_vue_export_helper_Cmn1wCFW_js={};
 (function(){'use strict';
 /**
 * @vue/shared v3.5.39

@@ -62,6 +62,20 @@ function inlineSharedChunksPlugin() {
         delete bundle[sKey]
         sharedKeys.splice(leafIdx, 1)
       }
+
+      // Post-pass: inject exportHelper for all entry chunks
+      // The import was already stripped, so we detect the minified name and inject it
+      const exportHelperImpl = `function(m,k){var e=m.__esModule||m[Symbol.toStringTag]==='Module'?function(){return m.default}:function(){return m};var d=e();for(var p in m){if(p!=='default'&&!Object.prototype.hasOwnProperty.call(d,p)){Object.defineProperty(d,p,{enumerable:true,get:(function(x){return m[x]}).bind(null,p)})}}if(k){for(var i=0;i<k.length;i++){d[k[i][0]]=k[i][1];}}return d;}`
+      for (const eKey of Object.keys(bundle)) {
+        const chunk = bundle[eKey]
+        if (!chunk || chunk.type !== 'chunk' || !chunk.isEntry) continue
+        // Detect exportHelper call: XXX = /* @__PURE__ */ YYY(componentName, [["__scopeId", ...]])
+        const helperMatch = chunk.code.match(/=\s*\/\*\s*@__PURE__\s*\*\/\s*(\w+)\s*\(\w+,\s*\[\s*\[\s*"__scopeId"/)
+        if (helperMatch && !chunk.code.includes('function(m,k)')) {
+          const helperVar = helperMatch[1] // The minified function name
+          chunk.code = `var ${helperVar}=${exportHelperImpl};\n` + chunk.code
+        }
+      }
     },
   }
 }
