@@ -34,7 +34,12 @@ function inlineSharedChunksPlugin() {
         const codeBody = cleaned.replace(/export\s*\{[^}]*\};?\n?/g, '').trim()
         const ns = `__sh_${sKey.replace(/[^a-zA-Z0-9]/g, '_')}`
         const exportLine = exportNames.map(e => `${ns}.${e.exported}=${e.local};`).join('')
-        const prefix = `var ${ns}={};\n(function(){\n${codeBody}\n${exportLine}\n})();\n`
+        // Convert function declarations to expressions to prevent hoisting outside IIFE.
+        // Function declarations inside non-strict IIFEs are hoisted to module scope,
+        // causing "Identifier 'oe' has already been declared" when main bundle also has const oe.
+        const renamedBody = codeBody
+          .replace(/\bfunction\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, 'var $1=function $1(')
+        const prefix = `var ${ns}={};\n(function(){\n${renamedBody}\n${exportLine}\n})();\n`
 
         for (const eKey of entryKeys) {
           const entry = bundle[eKey]
@@ -111,6 +116,9 @@ function inlineScopedCssPlugin() {
 
 export default defineConfig({
   plugins: [vue(), inlineSharedChunksPlugin(), inlineScopedCssPlugin()],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   build: {
     outDir: 'dist',
     lib: {
